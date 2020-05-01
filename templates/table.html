@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/static/table-style.css" type="text/css">
+
+{% block body %}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+  <div class="app-title">
+    <h2>Inventory</h2>
+  </div>
+
+
+<table align="center">
+  <tr>
+    <th>Data Center</th>
+    <th>Servers</th>
+  </tr>
+  <tr>
+    <td>Amazon</td>
+    <td id="amazon"></td>
+  </tr>
+  <tr>
+    <td>Michigan</td>
+    <td id="michigan"></td>
+  </tr>
+  <tr>
+    <td>Rhino</td>
+    <td id="rhino"></td>
+  </tr>
+  <tr>
+    <td>Tahoe</td>
+    <td id="tahoe"></td>
+  </tr>
+</table>
+
+{% if uname == "admin" %}
+  <input type="button" value="Edit" class="btn" onclick="window.location.href='/update';">
+{% endif %}
+
+{% if action == "edit" %}
+  <input type="button" value="Cancel" class="btn" onclick="window.location.href='/login';">
+  <input type="submit" value="Update" class="btn" onclick=updateServers()>
+{% endif %}
+
+<input type="button" value="Logout" class="logout-btn" onclick="window.location.href='/logout';">
+<script type = "text/javascript" src = "/static/inventory.js"></script>
+
+</body>
+</html>
+
+{% endblock %}
